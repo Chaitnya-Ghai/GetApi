@@ -50,13 +50,13 @@
             android:text="@string/delete"
             app:layout_constraintTop_toBottomOf="@+id/tvemail"
             app:layout_constraintEnd_toEndOf="@id/constraintAdapter"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_25sp"
-            android:text="@string/update"
-            android:id="@+id/updateBtn"
-            app:layout_constraintTop_toBottomOf="@+id/tvemail"
-            app:layout_constraintEnd_toStartOf="@id/deleteBtn"/>
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/_25sp"-->
+<!--            android:text="@string/update"-->
+<!--            android:id="@+id/updateBtn"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvemail"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/deleteBtn"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

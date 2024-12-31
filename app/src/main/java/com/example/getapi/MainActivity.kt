@@ -1,8 +1,10 @@
 package com.example.getapi
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -67,10 +69,36 @@ class MainActivity : AppCompatActivity(), RecyclerInterface {
     }
 
     override fun delete(position: Int) {
-
+        var alertDialog = AlertDialog.Builder(this@MainActivity)
+        alertDialog.setTitle("Delete Item")
+        alertDialog.setMessage("Do you want to delete the item?")
+        alertDialog.setCancelable(false)
+        alertDialog.setNegativeButton("No") { _, _ ->
+            alertDialog.setCancelable(true)
+        }
+        alertDialog.setPositiveButton("Yes") { _, _ ->
+            if (array.size == 0){
+                Toast.makeText(this@MainActivity, "List Is Empty", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Toast.makeText(
+                    this@MainActivity,
+                    "The item is deleted",
+                    Toast.LENGTH_SHORT
+                ).show()
+                array.removeAt(position)
+                recyclerAdapter.notifyDataSetChanged()
+            }
+        }
+        alertDialog.show()
     }
 
     override fun itemClick(position: Int, model: ResponseModel.Data) {
-
+        Toast.makeText(this@MainActivity, "item clicked", Toast.LENGTH_SHORT).show()
+        val intent=Intent(this@MainActivity,MainActivity2::class.java)
+        intent.putExtra("first_name",model.first_name)
+        intent.putExtra("last_name",model.last_name)
+        intent.putExtra("email",model.email)
+        startActivity(intent)
     }
 }
